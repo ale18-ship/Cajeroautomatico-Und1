@@ -55,11 +55,11 @@ int main() {
                 double deposito;
                 cout << "Ingrese monto a depositar: ";
                 cin >> deposito;
-                if (deposito > 0) {
+                if (deposito <= 0) {
+                    cout << "❌ Monto inválido. Debe ser mayor a 0." << endl;
+                } else {
                     usuario.saldo += deposito;
                     cout << "✅ Depósito exitoso. Nuevo saldo: $" << usuario.saldo << endl;
-                } else {
-                    cout << "❌ Monto inválido." << endl;
                 }
                 break;
             }
@@ -67,11 +67,13 @@ int main() {
                 double retiro;
                 cout << "Ingrese monto a retirar: ";
                 cin >> retiro;
-                if (retiro > 0 && retiro <= usuario.saldo) {
+                if (retiro <= 0) {
+                    cout << "❌ Monto inválido. Debe ser mayor a 0." << endl;
+                } else if (retiro > usuario.saldo) {
+                    cout << "❌ Fondos insuficientes." << endl;
+                } else {
                     usuario.saldo -= retiro;
                     cout << "✅ Retiro exitoso. Nuevo saldo: $" << usuario.saldo << endl;
-                } else {
-                    cout << "❌ Fondos insuficientes o monto inválido." << endl;
                 }
                 break;
             }
@@ -85,4 +87,5 @@ int main() {
 
     return 0;
 }
+
 
