@@ -1,7 +1,8 @@
 fun main() {
-    println("=== Cajero Automático ===")
+    println("===========================")
+    println("     CAJERO AUTOMÁTICO     ")
+    println("===========================")
 
-    // Lista de usuarios
     val usuarios = listOf(
         Usuario("Juan", 500.0),
         Usuario("María", 750.0),
@@ -27,7 +28,10 @@ fun main() {
 
     var opcion: Int
     do {
-        println("\nBienvenido, ${usuario.nombre}")
+        println("\n===========================")
+        println(" Bienvenido/a, ${usuario.nombre}")
+        println("===========================\n")
+
         println("1. Consultar saldo")
         println("2. Depositar")
         println("3. Retirar")
@@ -62,7 +66,9 @@ fun main() {
                     println("Monto inválido. Intente de nuevo.")
                 }
             }
-            4 -> println("Gracias por usar el cajero automático.")
+            4 -> println("\n===========================" +
+                         "\n Gracias por usar el cajero" +
+                         "\n===========================")
             else -> println("Opción inválida, intente de nuevo.")
         }
     } while (opcion != 4)
