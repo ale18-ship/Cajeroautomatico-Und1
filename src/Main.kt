@@ -15,10 +15,15 @@ fun main() {
         println("${index + 1}. ${usuario.nombre} - Saldo: ${usuario.saldo}")
     }
 
-    // Selección de usuario
     print("Ingrese opción: ")
-    val seleccion = readln().toInt() - 1
-    val usuario = usuarios[seleccion]
+    val seleccion = readlnOrNull()?.toIntOrNull()
+
+    if (seleccion == null || seleccion !in 1..usuarios.size) {
+        println("Opción inválida. Saliendo del programa.")
+        return
+    }
+
+    val usuario = usuarios[seleccion - 1]
 
     var opcion: Int
     do {
@@ -29,24 +34,32 @@ fun main() {
         println("4. Salir")
         print("Seleccione una opción: ")
 
-        opcion = readln().toInt()
+        opcion = readlnOrNull()?.toIntOrNull() ?: -1
 
         when (opcion) {
             1 -> println("Su saldo actual es: $${usuario.saldo}")
             2 -> {
                 print("Ingrese monto a depositar: ")
-                val deposito = readln().toDouble()
-                usuario.saldo += deposito
-                println("Depósito exitoso. Nuevo saldo: $${usuario.saldo}")
+                val deposito = readlnOrNull()?.toDoubleOrNull()
+                if (deposito != null && deposito > 0) {
+                    usuario.saldo += deposito
+                    println("Depósito exitoso. Nuevo saldo: $${usuario.saldo}")
+                } else {
+                    println("Monto inválido. Intente de nuevo.")
+                }
             }
             3 -> {
                 print("Ingrese monto a retirar: ")
-                val retiro = readln().toDouble()
-                if (retiro <= usuario.saldo) {
-                    usuario.saldo -= retiro
-                    println("Retiro exitoso. Nuevo saldo: $${usuario.saldo}")
+                val retiro = readlnOrNull()?.toDoubleOrNull()
+                if (retiro != null && retiro > 0) {
+                    if (retiro <= usuario.saldo) {
+                        usuario.saldo -= retiro
+                        println("Retiro exitoso. Nuevo saldo: $${usuario.saldo}")
+                    } else {
+                        println("Fondos insuficientes.")
+                    }
                 } else {
-                    println("Fondos insuficientes.")
+                    println("Monto inválido. Intente de nuevo.")
                 }
             }
             4 -> println("Gracias por usar el cajero automático.")
