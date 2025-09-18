@@ -1,6 +1,6 @@
 # Cajero Automático 💵
 
-Simulación de un cajero automático, desarrollada como ejercicio para la materia **Estructuras de Datos** en Kotlin y con opción de versión C++.
+Simulación de un cajero automático, desarrollada como ejercicio para la materia **Estructuras de Datos** en Kotlin.
 
 ---
 
