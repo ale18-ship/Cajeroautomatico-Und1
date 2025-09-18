@@ -28,8 +28,6 @@ Simulación de un cajero automático, desarrollada como ejercicio para la materi
 ```
 CajeroAutomaticoKotlin/
 ├── cajero.kt       # Código Kotlin
-├── cajero-cpp/     # Código C++ (opcional)
-│   └── main.cc
 └── README.md       # Documentación del proyecto
 ```
 
@@ -38,7 +36,6 @@ CajeroAutomaticoKotlin/
 ## 🛠️ Tecnologías
 
 - Kotlin 
-- C++
 - Git y GitHub
 - IntelliJ IDEA / VS Code
 
